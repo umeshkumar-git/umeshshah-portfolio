@@ -79,7 +79,8 @@ const SocialSection = memo(() => {
       {/* Links */}
       <div className="flex items-center gap-4 flex-wrap justify-center">
         {SOCIAL_LINKS.map(({ id, icon: Icon, href, label, color }) => (
-          
+          {/* THE FIX: Added the opening <a tag right here 👇 */}
+          <a
             key={id}
             data-social-link
             href={href}
