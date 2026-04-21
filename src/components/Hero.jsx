@@ -1,214 +1,134 @@
-import { useEffect, useRef, useMemo } from "react";
-import gsap from "gsap";
-import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
-import profileImage from "../assets/profile.png";
-import { SOCIAL_LINKS, HERO_CONFIG } from "../config/contact";
+"use client";
 
-interface HeroElement extends HTMLElement {
-	x?: number;
-	y?: number;
-}
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { ArrowRight, Github, Linkedin, Mail, Download } from "lucide-react";
 
 export default function Hero() {
-	const sectionRef = useRef < HTMLDivElement > null;
-	const profileRef = useRef < HeroElement > null;
-	const rafIdRef = (useRef < number) | (null > null);
-	const prefersReducedMotion = useMemo(
-		() => window.matchMedia("(prefers-reduced-motion: reduce)").matches,
-		[]
-	);
+	const containerVariants = {
+		hidden: { opacity: 0 },
+		visible: {
+			opacity: 1,
+			transition: { staggerChildren: 0.15, delayChildren: 0.2 },
+		},
+	};
 
-	useEffect(() => {
-		if (prefersReducedMotion) return; // Skip animations for accessibility
+	const itemVariants = {
+		hidden: { opacity: 0, y: 30 },
+		visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+	};
 
-		const ctx = gsap.context(() => {
-			const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-
-			tl.fromTo(
-				"[data-hero='avatar']",
-				{ scale: 0.6, opacity: 0 },
-				{ scale: 1, opacity: 1, duration: 0.6 }
-			)
-				.fromTo(
-					"[data-hero='title']",
-					{ y: 60, opacity: 0 },
-					{ y: 0, opacity: 1, duration: 0.7 },
-					"-=0.3"
-				)
-				.fromTo(
-					"[data-hero='subtitle']",
-					{ y: 20, opacity: 0 },
-					{ y: 0, opacity: 1, duration: 0.5 },
-					"-=0.3"
-				)
-				.fromTo(
-					"[data-hero='socials']",
-					{ y: 20, opacity: 0 },
-					{ y: 0, opacity: 1, duration: 0.5 },
-					"-=0.2"
-				)
-				.fromTo(
-					"[data-hero='cta']",
-					{ y: 20, opacity: 0 },
-					{ y: 0, opacity: 1, duration: 0.5 },
-					"-=0.2"
-				);
-
-			// Blob pulse animation
-			gsap.to("[data-hero='blob']", {
-				scale: 1.15,
-				opacity: 0.4,
-				duration: 4,
-				yoyo: true,
-				repeat: -1,
-				ease: "sine.inOut",
-			});
-		}, sectionRef);
-
-		return () => {
-			ctx.revert();
-		};
-	}, [prefersReducedMotion]);
-
-	// Parallax effect with RAF throttling
-	useEffect(() => {
-		const profileEl = profileRef.current;
-		if (!profileEl || prefersReducedMotion) return;
-
-		const xTo = gsap.quickTo(profileEl, "x", {
-			duration: 0.4,
-			ease: "power2.out",
-		});
-		const yTo = gsap.quickTo(profileEl, "y", {
-			duration: 0.4,
-			ease: "power2.out",
-		});
-
-		const handleMouseMove = (e: MouseEvent) => {
-			// Cancel previous RAF and schedule new one
-			if (rafIdRef.current) cancelAnimationFrame(rafIdRef.current);
-
-			rafIdRef.current = requestAnimationFrame(() => {
-				const xOffset = (e.clientX - window.innerWidth / 2) * 0.018;
-				const yOffset = (e.clientY - window.innerHeight / 2) * 0.018;
-				xTo(xOffset);
-				yTo(yOffset);
-			});
-		};
-
-		window.addEventListener("mousemove", handleMouseMove, {
-			passive: true,
-		});
-
-		return () => {
-			window.removeEventListener("mousemove", handleMouseMove);
-			if (rafIdRef.current) cancelAnimationFrame(rafIdRef.current);
-		};
-	}, [prefersReducedMotion]);
+	const socialLinks = [
+		{
+			icon: Github,
+			href: "https://github.com/umeshkumar-git",
+			label: "GitHub",
+		},
+		{
+			icon: Linkedin,
+			href: "https://linkedin.com/in/umesh-kumar-shah",
+			label: "LinkedIn",
+		},
+		{ icon: Mail, href: "mailto:me@umeshshah.in", label: "Email" },
+	];
 
 	return (
 		<section
-			ref={sectionRef}
-			className="relative h-screen flex flex-col items-center justify-center text-center px-4 overflow-hidden"
-			aria-label="Hero section"
+			id="hero"
+			className="min-h-screen pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50 to-white dark:from-slate-950 dark:to-slate-900"
 		>
-			{/* Animated gradient blob - decorative, hidden from a11y */}
-			<div
-				data-hero="blob"
-				className="pointer-events-none absolute top-[-120px] left-1/2 -translate-x-1/2
-                   w-[560px] h-[560px] rounded-full
-                   bg-purple-600 blur-[120px] opacity-30"
-				aria-hidden="true"
-			/>
+			<div className="max-w-7xl mx-auto">
+				<motion.div
+					variants={containerVariants}
+					initial="hidden"
+					animate="visible"
+					className="grid md:grid-cols-2 gap-12 items-center"
+				>
+					{/* Left: Text Content */}
+					<motion.div variants={itemVariants} className="space-y-8">
+						<div>
+							<h1 className="text-6xl md:text-7xl font-bold mb-6 leading-tight">
+								Hi, I'm{" "}
+								<span className="bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent">
+									Umesh
+								</span>
+							</h1>
+							<p className="text-xl text-slate-600 dark:text-slate-300 mb-4">
+								Full Stack Developer | React & Next.js
+								Specialist
+							</p>
+							<p className="text-lg text-slate-500 dark:text-slate-400 leading-relaxed">
+								I build beautiful, scalable web applications
+								that users love. Currently a BTech student at
+								Bangalore Technological Institute, actively
+								seeking internships to grow my skills and impact
+								real-world projects.
+							</p>
+						</div>
 
-			{/* Profile image with parallax */}
-			<img
-				ref={profileRef}
-				data-hero="avatar"
-				src={profileImage}
-				alt="Umesh Shah — Frontend Developer specializing in React and Three.js"
-				width={96}
-				height={96}
-				className="w-20 h-20 md:w-24 md:h-24 rounded-full
-                   border-2 border-white/20 shadow-xl
-                   mb-6 object-cover will-change-transform
-                   transition-all duration-200 hover:border-white/40"
-				loading="eager"
-				decoding="async"
-			/>
+						{/* CTA Buttons */}
+						<motion.div
+							variants={itemVariants}
+							className="flex flex-wrap gap-4"
+						>
+							<a
+								href="#projects"
+								className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-all hover:gap-3 shadow-lg hover:shadow-xl"
+							>
+								View My Work <ArrowRight size={20} />
+							</a>
+							<a
+								href="/resume.pdf"
+								download="Umesh_Kumar_Shah_Resume.pdf"
+								className="inline-flex items-center gap-2 px-6 py-3 border-2 border-slate-300 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg font-semibold transition-all"
+							>
+								<Download size={20} /> Resume
+							</a>
+						</motion.div>
 
-			{/* Name */}
-			<h1
-				data-hero="title"
-				className="text-5xl md:text-7xl font-bold tracking-tight mb-3
-                   bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent"
-			>
-				Umesh Shah
-			</h1>
+						{/* Social Links */}
+						<motion.div
+							variants={itemVariants}
+							className="flex gap-4 pt-4"
+						>
+							{socialLinks.map(({ icon: Icon, href, label }) => (
+								<a
+									key={label}
+									href={href}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="p-3 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-blue-600 dark:hover:bg-blue-600 text-slate-900 dark:text-white hover:text-white transition-all duration-300 hover:scale-110 shadow-md"
+									aria-label={label}
+								>
+									<Icon size={24} />
+								</a>
+							))}
+						</motion.div>
+					</motion.div>
 
-			{/* Role */}
-			<p
-				data-hero="subtitle"
-				className="text-base md:text-lg text-gray-400 mb-6 tracking-wide"
-			>
-				Frontend Developer &nbsp;·&nbsp; React &nbsp;·&nbsp; Three.js
-				&nbsp;·&nbsp; Creative UI
-			</p>
-
-			{/* Social icons */}
-			<nav
-				data-hero="socials"
-				className="flex items-center gap-5 mb-8"
-				aria-label="Social links"
-			>
-				{SOCIAL_LINKS.map(({ icon: Icon, href, label }) => (
-					<a
-						key={label}
-						href={href}
-						target="_blank"
-						rel="noopener noreferrer"
-						aria-label={`Visit ${label}`}
-						className="text-gray-400 hover:text-white transition-colors duration-200
-                       focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-full p-2"
+					{/* Right: Profile Image */}
+					<motion.div
+						variants={itemVariants}
+						className="relative h-96 md:h-full flex items-center justify-center"
 					>
-						<Icon size={20} aria-hidden="true" />
-					</a>
-				))}
-			</nav>
+						{/* Gradient Background Circle */}
+						<div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-3xl blur-3xl"></div>
 
-			{/* CTA Buttons */}
-			<div
-				data-hero="cta"
-				className="flex gap-4 flex-wrap justify-center"
-				role="group"
-				aria-label="Call to action buttons"
-			>
-				<a
-					href={HERO_CONFIG.resumeUrl}
-					target="_blank"
-					rel="noopener noreferrer"
-					className="px-6 py-2.5 rounded-full bg-white text-black text-sm font-semibold
-                     hover:bg-white/90 transition-all duration-200 shadow-md
-                     focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black"
-				>
-					View Resume
-				</a>
-				<a
-					href={HERO_CONFIG.projectsLink}
-					className="px-6 py-2.5 rounded-full border border-white/20 text-white text-sm font-semibold
-                     hover:bg-white/10 transition-all duration-200
-                     focus:outline-none focus:ring-2 focus:ring-white"
-				>
-					See Projects
-				</a>
-			</div>
-
-			{/* Scroll indicator */}
-			<div
-				className="absolute bottom-8 left-1/2 -translate-x-1/2 text-gray-500 animate-bounce"
-				aria-hidden="true"
-			>
-				<ArrowDown size={18} />
+						{/* Image Container */}
+						<div className="relative w-full max-w-md">
+							<Image
+								src="/profile.jpg"
+								alt="Umesh Kumar Shah"
+								width={400}
+								height={500}
+								className="rounded-2xl shadow-2xl object-cover w-full h-auto"
+								priority
+							/>
+							{/* Border Glow Effect */}
+							<div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-600 opacity-0 hover:opacity-20 transition-opacity duration-300"></div>
+						</div>
+					</motion.div>
+				</motion.div>
 			</div>
 		</section>
 	);
