@@ -5,7 +5,7 @@ This is my personal **3D portfolio website**, built to showcase my work, skills,
 I wanted this to feel more than just a website — something interactive, smooth, and visually engaging.
 
 🔗 Live: https://umeshshah.in  
-🔗 Repo: https://github.com/umeshkumar-git/umeshshah-porfolio
+🔗 Repo: https://github.com/umeshkumar-git/umeshshah-portfolio
 
 ---
 
@@ -162,8 +162,8 @@ src/
 ## 🚀 Getting Started
 
 ```bash
-git clone https://github.com/umeshkumar-git/umeshshah-porfolio.git
-cd umeshshah-porfolio
+git clone https://github.com/umeshkumar-git/umeshshah-portfolio.git
+cd umeshshah-portfolio
 npm install
 npm run dev
 ```
