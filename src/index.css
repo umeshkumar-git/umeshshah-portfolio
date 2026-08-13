@@ -1,0 +1,183 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background-color: #f1f5f9;
+  color: #475569;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark body {
+  background-color: #0f172a;
+  color: #94a3b8;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+::selection {
+  background: #5eead4;
+  color: #134e4a;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e2e8f0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 999px;
+  border: 2px solid #e2e8f0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border: 2px solid #0f172a;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Light-mode overrides for shared section styles */
+:root:not(.dark) .text-slate-200 {
+  color: #0f172a;
+}
+
+:root:not(.dark) .text-slate-400 {
+  color: #475569;
+}
+
+:root:not(.dark) .text-slate-500 {
+  color: #64748b;
+}
+
+:root:not(.dark) .text-teal-300 {
+  color: #0d9488;
+}
+
+:root:not(.dark) .bg-teal-400\/10 {
+  background-color: rgb(13 148 136 / 0.1);
+}
+
+:root:not(.dark) .hover\:text-teal-300:hover,
+:root:not(.dark) .group:hover .group-hover\:text-teal-300 {
+  color: #0d9488;
+}
+
+:root:not(.dark) .group\/link:hover .group-hover\/link\:text-teal-300 {
+  color: #0d9488;
+}
+
+:root:not(.dark) .hover\:border-teal-300:hover,
+:root:not(.dark) .group:hover .group-hover\:border-teal-300 {
+  border-color: #0d9488;
+}
+
+/* Hover card surface in light mode */
+@media (min-width: 1024px) {
+  :root:not(.dark) .group:hover .lg\:group-hover\:bg-slate-800\/50 {
+    background-color: rgb(255 255 255 / 0.75);
+    box-shadow:
+      inset 0 1px 0 0 rgb(15 23 42 / 0.04),
+      0 10px 15px -3px rgb(15 23 42 / 0.08);
+  }
+}
+
+:root:not(.dark) .border-slate-200\/10 {
+  border-color: rgb(15 23 42 / 0.1);
+}
+
+:root:not(.dark) .group:hover .group-hover\:border-slate-200\/30 {
+  border-color: rgb(15 23 42 / 0.25);
+}
+
+/* Mobile sticky section headers adapt to theme */
+.section-mobile-veil {
+  background-color: rgb(241 245 249 / 0.75);
+}
+
+.dark .section-mobile-veil {
+  background-color: rgb(15 23 42 / 0.75);
+}
+
+.section-mobile-veil h2 {
+  color: #0f172a;
+}
+
+.dark .section-mobile-veil h2 {
+  color: #e2e8f0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+@media print {
+  html,
+  body {
+    background: #ffffff !important;
+    color: #141414 !important;
+  }
+}
+
+
+.section-mobile-veil {
+  position: relative;
+}
+
+.section-mobile-veil::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.4));
+  pointer-events: none;
+  z-index: -1;
+}
+
+@media (min-width: 1024px) {
+  .section-mobile-veil::after {
+    display: none;
+  }
+}
