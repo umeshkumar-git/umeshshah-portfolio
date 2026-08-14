@@ -25,10 +25,10 @@ export default function App() {
 				<ThemeToggle theme={theme} onToggle={toggleTheme} />
 			</div>
 
-			<div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-16 lg:py-0">
+			<div className="mx-auto min-h-screen max-w-7xl px-6 py-12 font-sans md:px-12 md:py-16 lg:py-0">
 				<a
 					href="#content"
-					className="absolute left-0 top-0 z-50 -translate-x-[150%] rounded bg-gradient-to-br from-teal-400 via-blue-500 to-purple-600 px-4 py-3 text-sm font-bold text-white transition focus:translate-x-0"
+					className="absolute left-0 top-0 z-50 -translate-x-[150%] rounded bg-linear-to-br from-teal-400 via-blue-500 to-purple-600 px-4 py-3 text-sm font-bold text-white transition focus:translate-x-0"
 				>
 					Skip to Content
 				</a>
