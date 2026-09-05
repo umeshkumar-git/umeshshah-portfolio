@@ -84,24 +84,7 @@ export const experience = [
 			"MySQL",
 		],
 	},
-	{
-		period: "Featured",
-		title: "Lavoro — Daily Assignment System",
-		company: "Product Build",
-		companyUrl: "#projects",
-		description:
-			"Built a structured daily assignment and productivity platform for task distribution, submission management, progress tracking, and institutional workflow clarity.",
-		tech: ["Next.js", "TypeScript", "MySQL"],
-	},
-	{
-		period: "Featured",
-		title: "Eventics — Event Management",
-		company: "Product Build",
-		companyUrl: "#projects",
-		description:
-			"Shipped an event coordination product covering listings, registration flows, role-based coordination, and organizer-focused screens with a full-stack React and Node foundation.",
-		tech: ["React", "Node.js", "MongoDB"],
-	},
+
 	{
 		period: "Learning",
 		title: "AI & Engineering Credentials",
@@ -222,6 +205,13 @@ export const education = [
 ];
 
 export const certifications = [
+	{
+		type: "Certification",
+		title: "30 Days MasterClass in Full Stack Development",
+		org: "NoviTech R&D Private Limited",
+		description:
+			"Completed a 30-day hands-on MasterClass in Full Stack Development, covering practical web development concepts and full-stack application development.",
+	},
 	{
 		type: "Certification",
 		title: "Generative AI Mastermind",
