@@ -27,9 +27,9 @@ export const profile = {
 			label: "Email",
 		},
 		{
-			name: "Website",
-			href: "https://umeshshah.in",
-			label: "Website",
+			name: "hack2skill",
+			href: "https://hack2skill.com/dashboard/user_private_profile/?userId=69cbe4183de08e1283efc0fc&isEdit=true&tabIndex=about",
+			label: "hack2skill",
 		},
 		{
 			name: "Google Developer",
