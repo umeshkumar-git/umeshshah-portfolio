@@ -28,7 +28,7 @@ export const profile = {
 		},
 		{
 			name: "hack2skill",
-			href: "https://hack2skill.com/dashboard/user_private_profile/?userId=69cbe4183de08e1283efc0fc&isEdit=true&tabIndex=about",
+			href: "https://hack2skill.com/dashboard/user_public_profile/?userId=69cbe4183de08e1283efc0fc",
 			label: "hack2skill",
 		},
 		{
