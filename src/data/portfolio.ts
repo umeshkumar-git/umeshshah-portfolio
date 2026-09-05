@@ -31,6 +31,11 @@ export const profile = {
 			href: "https://umeshshah.in",
 			label: "Website",
 		},
+		{
+			name: "Google Developer",
+			href: "https://developers.google.com/profile/u/umeshshah",
+			label: "Google Developer",
+		},
 	],
 };
 
