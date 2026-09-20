@@ -48,7 +48,7 @@ export default function About() {
 
 				<div className="mt-8 grid gap-3 sm:grid-cols-3">
 					{[
-						{ label: "Featured products", value: "5" },
+						{ label: "Featured products", value: "7" },
 						{ label: "Engineering CGPA", value: "8.2" },
 						{ label: "Core technologies", value: "10+" },
 					].map((stat) => (
