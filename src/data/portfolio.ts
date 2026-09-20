@@ -188,7 +188,7 @@ export const education = [
 		period: "Engineering",
 		school: "Bangalore Technological Institute",
 		detail: "Bachelor of Engineering in Computer Science and Engineering with focus on software development, web technologies, databases, and engineering fundamentals.",
-		metric: "8.18 CGPA",
+		metric: "8.2 CGPA",
 	},
 	{
 		period: "Higher Secondary",
