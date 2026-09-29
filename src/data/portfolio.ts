@@ -48,13 +48,11 @@ export const navItems = [
 ] as const;
 
 export const aboutParagraphs = [
-	`Hi, I'm Umesh, a software developer based in Bengaluru. I like taking a product from a rough idea to something people can actually use: the React interface, the Node API behind it, and the data model that holds it together. Most of my work is in TypeScript, React, Next.js, and Node.js, with PostgreSQL, MongoDB, or MySQL underneath, depending on what the problem needs.`,
+	`I'm Umesh, a software developer in Bengaluru. I like owning a feature end to end: the React screen someone clicks, the Node API behind it, and the database that still has to make sense a year from now. My daily toolkit is TypeScript, React, Next.js, and Node.js, with PostgreSQL, MongoDB, or MySQL underneath.`,
 
-	`I learn by building, so my projects cover a lot of ground. Javify is a gamified Java learning platform with an in-browser code editor, an AI mentor, coding challenges, multiplayer battles, and leaderboards. Lavoro is an AI daily assistant powered by Gemini that handles morning briefings, email summaries, and task prioritization; I built it as my capstone for Google's AI Agents Intensive. My e-commerce app takes a shopper from product browsing through cart, checkout, and order creation, with Prisma and PostgreSQL behind it.`,
+	`I learn by shipping. Javify teaches Java through an in-browser editor, an AI mentor, and live coding battles. Lavoro, my capstone for Google's AI Agents Intensive, is a Gemini-powered assistant that plans your day. My e-commerce app covers the whole path from browsing to cart to checkout, with Prisma and PostgreSQL behind it.`,
 
-	`I also enjoy building for people and for fun. ImpactFlow is a community dashboard for volunteer coordination, with data visualization and automated reporting. Agent Arena is an AI-themed auto-battler I made just because the idea was fun. I care about the unglamorous parts too: clean API boundaries, readable code, accessible interfaces, and testing. Javify, for example, has unit and end-to-end tests, not just a working demo.`,
-
-	`Right now I'm going deeper into advanced TypeScript, distributed systems, Docker and Kubernetes, and cloud-native development. I'd love to work on open-source projects, backend systems, and DevOps tooling. If you're building something and want an engineer who sweats the details, get in touch. I'm also happy to talk about API design, database optimization, or debugging over coffee, which is how I debug fastest anyway.`,
+	`Right now I'm digging into distributed systems, Docker, and cloud-native development. If you have something worth building, I'd like to hear about it.`,
 ];
 
 export const experience = [
