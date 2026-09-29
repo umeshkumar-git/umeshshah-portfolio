@@ -3,7 +3,7 @@ export const profile = {
 	firstName: "Umesh",
 	title: "Software Developer",
 	headline: "I build structured, reliable web products.",
-	blurb: "Bengaluru-based full-stack developer focused on clean systems, thoughtful UX, and recruiter-ready product craft.",
+	blurb: "Software developer in Bengaluru. I take features from idea to production with React, Node.js, and TypeScript.",
 	email: "me@umeshshah.in",
 	phone: "+91 9301464989",
 	location: "Bengaluru, India",
