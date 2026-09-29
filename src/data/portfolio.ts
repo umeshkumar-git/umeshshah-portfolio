@@ -48,9 +48,13 @@ export const navItems = [
 ] as const;
 
 export const aboutParagraphs = [
-	`I'm a software engineer who enjoys building full-stack products end to end — from crisp React interfaces to reliable Node APIs and thoughtful data models. I care about maintainable code, accessible UI, and presenting work clearly for the people who will use and hire for it.`,
-	`My stack centers on JavaScript, TypeScript, React.js, Next.js, Node.js, MongoDB, and MySQL. I like working where product thinking meets engineering craft: structured components, clean API boundaries, and interfaces that feel intentional rather than improvised.`,
-	`Outside of shipping features, I keep sharpening fundamentals through DSA practice, AI tooling, and hands-on project work — always aiming for systems that are simple to explain, easy to extend, and solid in production.`,
+	`Hi, I'm Umesh, a software developer based in Bengaluru. I like taking a product from a rough idea to something people can actually use: the React interface, the Node API behind it, and the data model that holds it together. Most of my work is in TypeScript, React, Next.js, and Node.js, with PostgreSQL, MongoDB, or MySQL underneath, depending on what the problem needs.`,
+
+	`I learn by building, so my projects cover a lot of ground. Javify is a gamified Java learning platform with an in-browser code editor, an AI mentor, coding challenges, multiplayer battles, and leaderboards. Lavoro is an AI daily assistant powered by Gemini that handles morning briefings, email summaries, and task prioritization; I built it as my capstone for Google's AI Agents Intensive. My e-commerce app takes a shopper from product browsing through cart, checkout, and order creation, with Prisma and PostgreSQL behind it.`,
+
+	`I also enjoy building for people and for fun. ImpactFlow is a community dashboard for volunteer coordination, with data visualization and automated reporting. Agent Arena is an AI-themed auto-battler I made just because the idea was fun. I care about the unglamorous parts too: clean API boundaries, readable code, accessible interfaces, and testing. Javify, for example, has unit and end-to-end tests, not just a working demo.`,
+
+	`Right now I'm going deeper into advanced TypeScript, distributed systems, Docker and Kubernetes, and cloud-native development. I'd love to work on open-source projects, backend systems, and DevOps tooling. If you're building something and want an engineer who sweats the details, get in touch. I'm also happy to talk about API design, database optimization, or debugging over coffee, which is how I debug fastest anyway.`,
 ];
 
 export const experience = [
